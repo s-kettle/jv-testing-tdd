@@ -27,8 +27,15 @@ class WordAnalyserTest {
     void calculateLetterFrequency() {
         Map<Character, Integer> expectedMap1 = new HashMap<>() {{put('l', 3); }};
         Map<Character, Integer> actualMap1 = analyser.calculateLetterFrequency("Hello world");
+        Map<Character, Integer> expectedMap2 = new HashMap<>() {{put('a', 4); }};
+        Map<Character, Integer> actualMap2 = analyser.calculateLetterFrequency("Waka waka, eh eh");
+        Map<Character, Integer> expectedMap3 = new HashMap<>() {{put('y', 6); }};
+        Map<Character, Integer> actualMap3 = analyser.calculateLetterFrequency("Say, say, say, hey, hey now baby");
 
         assertEquals(expectedMap1, actualMap1);
+        assertEquals(expectedMap2, actualMap2);
+        assertEquals(expectedMap3, actualMap3);
+
 
     }
 }

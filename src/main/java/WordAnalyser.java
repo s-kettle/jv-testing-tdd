@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class WordAnalyser {
@@ -6,7 +7,7 @@ public class WordAnalyser {
         // TODO: Implement the logic to find the longest word(s) in the given text
 
         String[] inputToArray = text
-                .replaceAll("/[^a-zA-Z0-9 ]*/g", "")
+                .replaceAll("[^a-zA-Z0-9 ]*", "")
                 .split(" ");
 
         ArrayList<String> stringList = new ArrayList<>();
@@ -28,6 +29,27 @@ public class WordAnalyser {
 
     public Map<Character, Integer> calculateLetterFrequency(String text) {
         // TODO: Implement the logic to calculate the frequency of each letter in the given text
-        return null;
+        Map<Character, Integer> mapList = new HashMap<>();
+        Map<Character, Integer> result = new HashMap<>();
+        String newText = text.replaceAll(" ", "");
+        char[] character = newText.toCharArray();
+        for (Character c : character){
+            if(mapList.get(c) == null){
+                mapList.put(c,1);
+            } else {
+                int value = mapList.get(c);
+                value ++;
+                mapList.put(c,value);
+            }
+        }
+        Map.Entry<Character, Integer> maxEntry = null;
+        for (Map.Entry<Character, Integer> entry : mapList.entrySet()) {
+            if (maxEntry == null || entry.getValue()
+                    .compareTo(maxEntry.getValue()) > 0) {
+                maxEntry = entry;
+            }
+        }
+        result.put(maxEntry.getKey(), maxEntry.getValue());
+        return result;
     }
 }
