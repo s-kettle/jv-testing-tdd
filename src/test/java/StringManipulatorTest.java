@@ -5,17 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringManipulatorTest {
 
+    StringManipulator sm = new StringManipulator();
+
     @Test
     @DisplayName("correctly reverses a given string")
     void reverseString() {
-            assertEquals("olleh", StringManipulator.reverseString("hello"));
-            assertEquals("4321", StringManipulator.reverseString("1234"));
+            assertEquals("olleh", sm.reverseString("hello"));
+            assertEquals("4321", sm.reverseString("1234"));
     }
 
     @Test
     @DisplayName("correctly identifies a palindrome")
     void isPalindrome() {
-        assertTrue(StringManipulator.isPalindrome("rotor"));
-        assertFalse(StringManipulator.isPalindrome("northcoders"));
+        assertTrue(sm.isPalindrome("rotor"));
+        assertFalse(sm.isPalindrome("northcoders"));
     }
 }

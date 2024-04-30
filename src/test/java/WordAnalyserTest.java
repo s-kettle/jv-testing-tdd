@@ -1,22 +1,33 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WordAnalyserTest {
 
+    WordAnalyser analyser = new WordAnalyser();
+
     @Test
     @DisplayName("Find the longest word in the text")
     void findLongestWords() {
-        assertEquals("established", WordAnalyser.findLongestWords("It is a long established fact that a reader will be distracted by the readable content"));
-        assertEquals("variations", "There are many variations of passages of Lorem Ipsum available");
+        String[] expectedArray1 = {"sentence"};
+        String[] actualArray1 = analyser.findLongestWords("This is a fairly boring sentence");
+        assertArrayEquals(expectedArray1, actualArray1);
+
+        String[] expectedArray2 = {"fairly", "boring"};
+        String[] actualArray2 = analyser.findLongestWords("This is a fairly boring thing.");
+        assertArrayEquals(expectedArray2, actualArray2);
     }
 
-//    @Test
-//    @DisplayName("calculate the frequency of each letter")
-//    void calculateLetterFrequency() {
-//        assertA
-//        assertEquals(, WordAnalyser.calculateLetterFrequency("this a a this by by apple or"));
-//        assertEquals("", WordAnalyser.calculateLetterFrequency());
-//     }
+    @Test
+    @DisplayName("calculate the frequency of each letter")
+    void calculateLetterFrequency() {
+        Map<Character, Integer> expectedMap1 = new HashMap<Character, Integer>() {{ put('l', 3); }};
+        Map<Character, Integer> actualMap2 = analyser.calculateLetterFrequency("Hello world");
+
+
+     }
 }
