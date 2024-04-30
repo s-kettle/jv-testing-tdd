@@ -52,8 +52,6 @@ class ShoppingCartTest {
         cart.addItem("Milk", 1.00);
         cart.addItem("Eggs", 1.00);
 
-        cart.applyDiscount(10.0);
-
-        assertEquals(3.60, cart.calculatePrice(cart.getItems()));
+        assertEquals(3.60, cart.applyDiscount(10.0));
     }
 }

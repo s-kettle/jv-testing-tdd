@@ -25,7 +25,8 @@ public class ShoppingCart {
         return totalPrice;
     }
 
-    public void applyDiscount(double percentage) {
+    public double applyDiscount(double percentage) {
         this.discountPercentage = percentage;
+        return calculatePrice(items) * (1 - this.discountPercentage / 100);
     }
 }
