@@ -25,9 +25,10 @@ class WordAnalyserTest {
     @Test
     @DisplayName("calculate the frequency of each letter")
     void calculateLetterFrequency() {
-        Map<Character, Integer> expectedMap1 = new HashMap<Character, Integer>() {{ put('l', 3); }};
-        Map<Character, Integer> actualMap2 = analyser.calculateLetterFrequency("Hello world");
+        Map<Character, Integer> expectedMap1 = new HashMap<>() {{put('l', 3); }};
+        Map<Character, Integer> actualMap1 = analyser.calculateLetterFrequency("Hello world");
 
+        assertEquals(expectedMap1, actualMap1);
 
-     }
+    }
 }
