@@ -8,6 +8,10 @@ public class ShoppingCart {
         items.put(item, price);
     }
 
+    public Map<String, Double> getItems() {
+        return items;
+    }
+
     public double calculatePrice(Map<String, Double> input) {
         double totalPrice = 0;
         for (Map.Entry<String, Double> entry : input.entrySet()) {
