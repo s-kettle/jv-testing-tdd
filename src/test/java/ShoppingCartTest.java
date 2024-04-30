@@ -36,4 +36,24 @@ class ShoppingCartTest {
 
         assertEquals(5.40, cart.calculatePrice(cart.getItems()));
     }
+
+    @Test
+    @DisplayName("discount is stored correctly in ShoppingCart class")
+    void applyDiscount() {
+        cart.applyDiscount(10.0);
+        assertEquals(10.0, cart.getDiscountPercentage());
+    }
+
+    @Test
+    @DisplayName("discount is applied correctly to all items in cart")
+    void applyDiscountItemCheck() {
+
+        cart.addItem("Bread", 2.00);
+        cart.addItem("Milk", 1.00);
+        cart.addItem("Eggs", 1.00);
+
+        cart.applyDiscount(10.0);
+
+        assertEquals(3.60, cart.calculatePrice(cart.getItems()));
+    }
 }
