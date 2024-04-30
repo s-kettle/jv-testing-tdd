@@ -29,5 +29,11 @@ class ShoppingCartTest {
     @Test
     @DisplayName("can correctly calculate total price")
     void calculatePrice() {
+
+        cart.addItem("Bread", 2.00);
+        cart.addItem("Milk", 1.60);
+        cart.addItem("Eggs", 1.80);
+
+        assertEquals(5.40, cart.calculatePrice(cart.getItems()));
     }
 }
