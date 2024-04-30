@@ -54,4 +54,6 @@ class ShoppingCartTest {
 
         assertEquals(3.60, cart.applyDiscount(10.0));
     }
+
+
 }
